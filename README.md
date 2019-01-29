@@ -1,5 +1,11 @@
 # MovieFrontApp
 
+[![Build Status](https://travis-ci.org/RomainTellier/movie-front-app.svg?branch=master)](https://travis-ci.org/RomainTellier/movie-front-app)
+![NPM Version](https://img.shields.io/badge/npm-v6.4.1-blue.svg)
+![NODE Version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 ## Development server
