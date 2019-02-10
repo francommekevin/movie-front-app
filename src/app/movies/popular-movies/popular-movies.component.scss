@@ -74,7 +74,7 @@ font-size: 24px
   position: absolute;
   left: 0;
   overflow: auto;
-  padding: 30px 15px;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -88,6 +88,9 @@ font-size: 24px
   bottom: 0;
 }
 
+.popular-movies--mobile-button {
+  display: none;
+}
 
 @media screen and (max-width: 425px) {
   .popular-movies--sub-container {
@@ -102,5 +105,14 @@ font-size: 24px
 
   .popular-movies--resume {
     max-height: 6.9em;
+  }
+
+  .popular-movies-card-caption .popular-movies--caption {
+    display: none;
+  }
+
+  .popular-movies--mobile-button {
+    display: block;
+    margin: 1rem auto;
   }
 }
