@@ -1,0 +1,106 @@
+.popular-movies--container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.popular-movies--movie-card {
+  width: 483px;
+  margin: 15px 30px;
+}
+
+.popular-movies--movie-title {
+font-size: 24px
+}
+
+.popular-movies--sub-container {
+  display: flex;
+  align-items: center;
+}
+
+.popular-movies--movie-image {
+  width: 185px;
+  height: 278px;
+}
+
+
+.popular-movies--sub-container-infos {
+  width: 298px;
+  height: 278px;
+  position: relative;
+  padding: 0 16px;
+  overflow: hidden;
+}
+
+.popular-movies--resume {
+  color: #c1c1c1;
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 14.9em;
+  font-size: 14px;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+.popular-movies--resume:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.popular-movies--resume:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: #151515;
+}
+
+
+.popular-movies-card-caption {
+  position: relative;
+  overflow: hidden;
+}
+
+.popular-movies-card-caption .popular-movies--caption {
+  background: #333;
+  width: 100%;
+  height: 30%;
+  bottom: -30%;
+  position: absolute;
+  left: 0;
+  overflow: auto;
+  padding: 30px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.popular-movies-card-caption:hover .popular-movies--caption {
+  bottom: 0;
+}
+
+
+@media screen and (max-width: 425px) {
+  .popular-movies--sub-container {
+    flex-direction: column;
+  }
+
+  .popular-movies--sub-container-infos {
+    width: auto;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .popular-movies--resume {
+    max-height: 6.9em;
+  }
+}

@@ -1,0 +1,26 @@
+<ng-container *ngIf="popularMoviesList">
+  <section class="popular-movies--container">
+    <mat-card class="popular-movies--movie-card popular-movies-card-caption" *ngFor="let movie of popularMoviesList">
+      <h2 class="popular-movies--movie-title">{{ movie.title }}</h2>
+      <div class="popular-movies--sub-container">
+        <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" class="popular-movies--movie-image">
+        <div class="popular-movies--sub-container-infos">
+          <span>
+            {{ movie.release_date }}
+          </span>
+          <p>
+            Résumé :
+          </p>
+          <p class="popular-movies--resume">
+            {{ movie.overview }}
+          </p>
+        </div>
+      </div>
+
+      <div class="popular-movies--caption">
+        <p>Plus d'informations</p>
+        <button mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR</button>
+      </div>
+    </mat-card>
+  </section>
+</ng-container>
