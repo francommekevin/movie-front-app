@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/src/app/constants
 
 # dependencies
 /node_modules
@@ -31,6 +32,7 @@ speed-measure-plugin.json
 
 # misc
 /.sass-cache
+/.scss-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
