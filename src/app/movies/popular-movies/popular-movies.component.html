@@ -5,9 +5,19 @@
       <div class="popular-movies--sub-container">
         <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" class="popular-movies--movie-image">
         <div class="popular-movies--sub-container-infos">
-          <span>
+          <div class="popular-movies--release-date-and-rating-container">
             {{ movie.release_date }}
-          </span>
+            <div class="popular-movies--rating-container">
+              <mat-progress-spinner diameter="40"
+                                    [ngClass]="{
+                                    'isUnder5': (movie.vote_average < 5),
+                                    'isBetween5and8': (movie.vote_average >=5 && movie.vote_average < 8),
+                                    'isOver8': (movie.vote_average >= 8) }"
+                                    [value]="(movie.vote_average)*10"
+              ></mat-progress-spinner>
+              <div class="popular-movies--rating-number">{{ movie.vote_average }}</div>
+            </div>
+          </div>
           <p>
             Résumé :
           </p>

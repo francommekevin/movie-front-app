@@ -33,6 +33,34 @@ font-size: 24px
   overflow: hidden;
 }
 
+.popular-movies--release-date-and-rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popular-movies--rating-container {
+  display: flex;
+  justify-content: center;
+
+  &::ng-deep .mat-progress-spinner.isUnder5 circle {
+    stroke: #FF5252;
+  }
+
+  &::ng-deep .mat-progress-spinner.isBetween5and8 circle {
+    stroke: #FF9800;
+  }
+
+  &::ng-deep .mat-progress-spinner.isOver8 circle {
+    stroke: #4CAF50;
+  }
+}
+
+.popular-movies--rating-number {
+  position: absolute;
+  top: 11px;
+}
+
 .popular-movies--resume {
   color: #c1c1c1;
   overflow: hidden;
