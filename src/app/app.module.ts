@@ -7,7 +7,7 @@ import { MoviesService } from './services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PopularMoviesComponent } from './movies/popular-movies/popular-movies.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 
 @NgModule({
@@ -22,7 +22,8 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [MoviesService],
   bootstrap: [AppComponent]
