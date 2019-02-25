@@ -12,4 +12,11 @@ before_script:
 script:
   - ng lint
   - npm run test-headless
-  - ng build --prod --base-href https://github.com/RomainTellier/movie-front-app
+  - npm run postinstall
+deploy:
+  provider: heroku
+  api_key:
+    secure: uWtmH2j+BiougJMhfVfc3YcdgAg7ag7qQo0hUgEClV/c6fLJLwRLgGeF2+gPcba5ORV/HrP6CQ7sv4a1nYvbtFTfSnTJ66Ubjq+yDYex49WSu2sS1SgYoIQhrd62ZSrY3tjBO3MjkBSUJgDUEJEVD5ZEnZ7bKOYnJrZm2dtFT+n3IGfqY8EFdCYRMScQ+T4CeEjPQVwgxkfF7bmqfXZAqMXljdg2FwWvn72B/zecynlztiymXLnHd7lUf7EooxuNVPq9oa0UpfLNcwTktyE0XClzfA38XsiS6fTR/V+mjFAQYz1ktngqoebVLRvrojbJAP3DFstblNzzD5MlwNBK4Z60ImgHyEfDWrkskwfTJyIhs+tPmYv5kLaTsgZYGfSGYFdDRlQSOp899piYP2XVEAOVnY1fe02i0NWOx5r8ZXTeTAAfl4FsK+XXozlwb173F3TmTaM2zyv+Q2rli8vE3H6ylIW42FG/ScHIGkXniZjwK3omesUsAAaUeo5vS23qDcggDcR08DP0QHlhYdjXhSbxop/KD+BJcO5ylBs1Wejazkurp5w1mAdDDKOOTzYhZJl8Zj4HxlS6Nf5bWoiqWLFxsfyTnz19e/U/T+ROFcwM+FWgh2ej2VoSlSSzUBZHzeQIA/TICt1EHYODY/I39mdYrZzcOtP7VA3HMFYAEuY=
+  app: movie-front-app
+  on:
+    branch: dev
