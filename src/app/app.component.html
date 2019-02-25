@@ -1,4 +1,25 @@
-<h1>Movie Reviews</h1>
-<button mat-raised-button color="accent" routerLink="/popular">Go to Popular movies</button>
+<mat-toolbar class="main-app--toolbar">
+  <button mat-icon-button class="main-app--burger-button" (click)="snav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button class="main-app--logos-container" routerLink="/home">
+    <img class="main-app--movie-logo" src="../assets/icons/ic-popcorn.svg" [alt]="'icon-popcorn'"/>
+    <span class="main-app--movie-logo-title">Mon PopCorn</span>
+  </button>
+  <nav class="main-app--navigation-container">
+    <button mat-button routerLink="/popular" routerLinkActive="main-app--navigation-link">FILMS POPULAIRES</button>
+  </nav>
+</mat-toolbar>
+<mat-sidenav-container class="main-app--sidenav-container">
+  <mat-sidenav #snav mode="push" fixedInViewport="true" fixedTopGap="56" class="main-app--sidenav">
+    <button mat-raised-button id="stop-cdk-nav" routerLink="/popular" color="accent" routerLinkActive="main-app--navigation-link-mobile"><a>FILMS POPULAIRES</a></button>
+    <button mat-raised-button routerLink="/popular" color="accent" routerLinkActive="main-app--navigation-link-mobile"><a>FILMS POPULAIRES</a></button>
+    <button mat-raised-button routerLink="/popular" color="accent" routerLinkActive="main-app--navigation-link-mobile"><a>FILMS POPULAIRES</a></button>
+  </mat-sidenav>
 
-<router-outlet></router-outlet>
+  <mat-sidenav-content>
+    <div class="main-app--container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
