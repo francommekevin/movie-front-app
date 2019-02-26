@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Constants } from '../constants/constants';
-import {environment} from 'src/environments/environment';
 
 @Injectable()
 export class MoviesService {
@@ -11,7 +10,7 @@ export class MoviesService {
 
   getPopularMoviesByPages(pageNumber: number): Observable<any> {
     return this.http.get(Constants.BASE_API_URL + 'movie/popular?api_key=' +
-      environment.BASE_API_URL + '&language=' +
+      Constants.BASE_API_KEY + '&language=' +
       Constants.BASE_API_LANGUAGE + '&page=' + pageNumber);
   }
 
