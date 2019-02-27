@@ -1,0 +1,101 @@
+.main-app--toolbar {
+  background-color: #ffd740;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #212121;
+  position: fixed;
+  z-index: 2;
+}
+
+.main-app--burger-button {
+  display: none;
+}
+
+::ng-deep .mat-drawer-container {
+  background-color: #212121 !important;
+}
+
+.main-app--sidenav {
+  width: 230px;
+  color: #FFF;
+  background-color: #455A64;
+  padding: 16px;
+}
+
+.main-app--navigation-link {
+  background-color: #212121 !important;
+  color: #fff !important;
+}
+
+.main-app--navigation-link-mobile {
+  background-color: #212121 !important;
+  color: #fff !important;
+}
+
+.main-app--logos-container {
+  border: none;
+  margin: 0 10px;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+/* Remove excess padding and border in Firefox 4+ */
+  .main-app--logos-container::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.main-app--movie-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.main-app--movie-logo-title {
+  margin: 0 10px;
+  font-family: 'FredokaOne-Regular', sans-serif;
+}
+
+.main-app--navigation-container {
+  display: flex;
+  align-items: center;
+}
+
+.main-app--container {
+  min-height: 100vh;
+  padding: 80px 16px 16px;
+  margin: 0;
+  color: #ffffff;
+  background-color: #212121;
+}
+
+@media screen and (max-width: 768px) {
+  .main-app--toolbar {
+    justify-content: center;
+  }
+
+  .main-app--navigation-container {
+    display: none;
+  }
+
+  .main-app--burger-button {
+    display: block;
+    position: absolute;
+    left: 10px;
+  }
+}
+
+@media (max-width: 599px) {
+  .main-app--container {
+    padding-top: 72px;
+  }
+}
