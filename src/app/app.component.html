@@ -7,14 +7,14 @@
     <span class="main-app--movie-logo-title">Mon PopCorn</span>
   </button>
   <nav class="main-app--navigation-container">
-    <button mat-button routerLink="/popular" routerLinkActive="main-app--navigation-link">FILMS POPULAIRES</button>
+    <button mat-button class="main-app--navigation-button" routerLink="/popular" routerLinkActive="main-app--navigation-link">POPULAIRES</button>
+    <button mat-button class="main-app--navigation-button" routerLink="/now_playing" routerLinkActive="main-app--navigation-link">EN SALLE</button>
   </nav>
 </mat-toolbar>
 <mat-sidenav-container class="main-app--sidenav-container">
-  <mat-sidenav #snav mode="push" fixedInViewport="true" fixedTopGap="56" class="main-app--sidenav">
-    <button mat-raised-button id="stop-cdk-nav" routerLink="/popular" color="accent" routerLinkActive="main-app--navigation-link-mobile"><a>FILMS POPULAIRES</a></button>
-    <button mat-raised-button routerLink="/popular" color="accent" routerLinkActive="main-app--navigation-link-mobile"><a>FILMS POPULAIRES</a></button>
-    <button mat-raised-button routerLink="/popular" color="accent" routerLinkActive="main-app--navigation-link-mobile"><a>FILMS POPULAIRES</a></button>
+  <mat-sidenav #snav mode="over" fixedInViewport="true" fixedTopGap="56" class="main-app--sidenav">
+    <button mat-raised-button class="main-app--navigation-button-mobile" id="stop-cdk-nav" routerLink="/popular" color="accent" routerLinkActive="main-app--navigation-link-mobile"><a>FILMS POPULAIRES</a></button>
+    <button mat-raised-button class="main-app--navigation-button-mobile" routerLink="/now_playing" color="accent" routerLinkActive="main-app--navigation-link-mobile"><a>EN SALLE</a></button>
   </mat-sidenav>
 
   <mat-sidenav-content>

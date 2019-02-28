@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopularMoviesComponent } from './popular-movies.component';
+import { PlayingMoviesComponent } from './playing-movies.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatCardModule, MatPaginatorModule, MatProgressSpinnerModule } from '@angular/material';
-import { MoviesService } from '../../services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MoviesService } from '../../services/movies.service';
 
-describe('PopularMoviesComponent', () => {
-  let component: PopularMoviesComponent;
-  let fixture: ComponentFixture<PopularMoviesComponent>;
+describe('PlayingMoviesComponent', () => {
+  let component: PlayingMoviesComponent;
+  let fixture: ComponentFixture<PlayingMoviesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,15 +19,19 @@ describe('PopularMoviesComponent', () => {
         MatPaginatorModule,
         MatProgressSpinnerModule
       ],
-      declarations: [ PopularMoviesComponent ],
+      declarations: [ PlayingMoviesComponent ],
       providers: [MoviesService],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopularMoviesComponent);
+    fixture = TestBed.createComponent(PlayingMoviesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
