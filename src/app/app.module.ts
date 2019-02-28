@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule,
-  MatIconModule,
+  MatIconModule, MatPaginatorModule,
   MatProgressSpinnerModule, MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MovieHomeComponent } from './movies/movie-home/movie-home.component';
 import { registerLocaleData } from '@angular/common';
 import localeDeAt from '@angular/common/locales/fr';
+import { PlayingMoviesComponent } from './movies/playing-movies/playing-movies.component';
 
 registerLocaleData(localeDeAt);
 
@@ -28,7 +29,8 @@ registerLocaleData(localeDeAt);
     PopularMoviesComponent,
     MovieDetailComponent,
     PageNotFoundComponent,
-    MovieHomeComponent
+    MovieHomeComponent,
+    PlayingMoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ registerLocaleData(localeDeAt);
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
+    MatPaginatorModule,
     MatProgressSpinnerModule
   ],
   providers: [MoviesService,

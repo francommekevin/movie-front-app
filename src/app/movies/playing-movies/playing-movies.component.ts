@@ -6,13 +6,13 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-popular-movies',
-  templateUrl: './popular-movies.component.html',
-  styleUrls: ['./popular-movies.component.scss']
+  selector: 'app-playing-movies',
+  templateUrl: './playing-movies.component.html',
+  styleUrls: ['./playing-movies.component.scss']
 })
-export class PopularMoviesComponent implements OnInit, OnDestroy {
+export class PlayingMoviesComponent implements OnInit, OnDestroy {
   originalPageNumber = 1;
-  popularMoviesList = [];
+  playingMoviesList = [];
   totalPages = 0;
   pageEvent: PageEvent;
 
@@ -22,7 +22,7 @@ export class PopularMoviesComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    this.retrievePopularMovies(this.originalPageNumber);
+    this.retrievePlayingMovies(this.originalPageNumber);
   }
 
   ngOnDestroy(): void {
@@ -30,12 +30,12 @@ export class PopularMoviesComponent implements OnInit, OnDestroy {
     this._ngUnsubscribe.complete();
   }
 
-  retrievePopularMovies(pageNumber: number) {
-    this.moviesService.getPopularMoviesByPages(pageNumber)
+  retrievePlayingMovies(pageNumber: number) {
+    this.moviesService.getPlayingMoviesByPages(pageNumber)
       .pipe(takeUntil(this._ngUnsubscribe))
       .subscribe(res => {
           this.totalPages = res.total_results;
-          this.popularMoviesList = res.results;
+          this.playingMoviesList = res.results;
         },
         (error) => {
           throw error;

@@ -1,0 +1,54 @@
+<ng-container *ngIf="playingMoviesList">
+  <mat-paginator class="playing-movies--paginator"
+                 [length]="totalPages"
+                 [pageSize]="20"
+                 [hidePageSize]="true"
+                 [showFirstLastButtons]="true"
+                 (page)="pageEvent = $event; retrievePlayingMovies(pageEvent.pageIndex + 1);">
+  </mat-paginator>
+
+  <section class="playing-movies--container">
+    <mat-card class="playing-movies--movie-card playing-movies-card-caption" *ngFor="let movie of playingMoviesList">
+      <h2 class="playing-movies--movie-title">{{ movie.title }}</h2>
+      <div class="playing-movies--sub-container">
+        <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" class="playing-movies--movie-image">
+        <div class="playing-movies--sub-container-infos">
+          <div class="playing-movies--release-date-and-rating-container">
+            {{ movie.release_date | date:'d MMMM y' }}
+            <div class="playing-movies--rating-container">
+              <mat-progress-spinner diameter="40"
+                                    [ngClass]="{
+                                    'isUnder5': (movie.vote_average < 5),
+                                    'isBetween5and7': (movie.vote_average >=5 && movie.vote_average < 7),
+                                    'isBetween7and8': (movie.vote_average >=7 && movie.vote_average < 8),
+                                    'isOver8': (movie.vote_average >= 8) }"
+                                    [value]="(movie.vote_average)*10"
+              ></mat-progress-spinner>
+              <div class="playing-movies--rating-number">{{ movie.vote_average ? movie.vote_average : '---' }}</div>
+            </div>
+          </div>
+          <p class="playing-movies--resume-title">
+            Résumé :
+          </p>
+          <p class="playing-movies--resume">
+            {{ movie.overview ? movie.overview : '---' }}
+          </p>
+        </div>
+        <button class="playing-movies--mobile-button" mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR EN DETAIL</button>
+      </div>
+
+      <div class="playing-movies--caption">
+        <p class="playing-movies--caption-see-detail">Plus d'informations</p>
+        <button mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR</button>
+      </div>
+    </mat-card>
+  </section>
+
+  <mat-paginator class="playing-movies--paginator"
+                 [length]="totalPages"
+                 [pageSize]="20"
+                 [hidePageSize]="true"
+                 [showFirstLastButtons]="true"
+                 (page)="pageEvent = $event; retrievePlayingMovies(pageEvent.pageIndex + 1);">
+  </mat-paginator>
+</ng-container>

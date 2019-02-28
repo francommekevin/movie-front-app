@@ -1,4 +1,12 @@
 <ng-container *ngIf="popularMoviesList">
+  <mat-paginator class="popular-movies--paginator"
+                 [length]="totalPages"
+                 [pageSize]="20"
+                 [hidePageSize]="true"
+                 [showFirstLastButtons]="true"
+                 (page)="pageEvent = $event; retrievePopularMovies(pageEvent.pageIndex + 1);">
+  </mat-paginator>
+
   <section class="popular-movies--container">
     <mat-card class="popular-movies--movie-card popular-movies-card-caption" *ngFor="let movie of popularMoviesList">
       <h2 class="popular-movies--movie-title">{{ movie.title }}</h2>
@@ -11,18 +19,19 @@
               <mat-progress-spinner diameter="40"
                                     [ngClass]="{
                                     'isUnder5': (movie.vote_average < 5),
-                                    'isBetween5and8': (movie.vote_average >=5 && movie.vote_average < 8),
+                                    'isBetween5and7': (movie.vote_average >=5 && movie.vote_average < 7),
+                                    'isBetween7and8': (movie.vote_average >=7 && movie.vote_average < 8),
                                     'isOver8': (movie.vote_average >= 8) }"
                                     [value]="(movie.vote_average)*10"
               ></mat-progress-spinner>
-              <div class="popular-movies--rating-number">{{ movie.vote_average }}</div>
+              <div class="popular-movies--rating-number">{{ movie.vote_average ? movie.vote_average : '---' }}</div>
             </div>
           </div>
           <p class="popular-movies--resume-title">
             Résumé :
           </p>
           <p class="popular-movies--resume">
-            {{ movie.overview }}
+            {{ movie.overview ? movie.overview : '---' }}
           </p>
         </div>
         <button class="popular-movies--mobile-button" mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR EN DETAIL</button>
@@ -34,4 +43,12 @@
       </div>
     </mat-card>
   </section>
+
+  <mat-paginator class="popular-movies--paginator"
+                 [length]="totalPages"
+                 [pageSize]="20"
+                 [hidePageSize]="true"
+                 [showFirstLastButtons]="true"
+                 (page)="pageEvent = $event; retrievePopularMovies(pageEvent.pageIndex + 1);">
+  </mat-paginator>
 </ng-container>
