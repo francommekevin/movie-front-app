@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { SubscriberUtil } from '../../utils/subscriber';
 
 @Component({
   selector: 'app-popular-movies',
@@ -12,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class PopularMoviesComponent implements OnInit, OnDestroy {
   originalPageNumber = 1;
-  popularMoviesList = [];
+  popularMoviesList: any = null;
   totalPages = 0;
   pageEvent: PageEvent;
 
@@ -31,7 +32,8 @@ export class PopularMoviesComponent implements OnInit, OnDestroy {
   }
 
   retrievePopularMovies(pageNumber: number) {
-    this.moviesService.getPopularMoviesByPages(pageNumber)
+    SubscriberUtil.relay(
+      this.moviesService.getPopularMoviesByPages(pageNumber)
       .pipe(takeUntil(this._ngUnsubscribe))
       .subscribe(res => {
           this.totalPages = res.total_results;
@@ -39,7 +41,10 @@ export class PopularMoviesComponent implements OnInit, OnDestroy {
         },
         (error) => {
           throw error;
-        });
+        },
+        ),
+      'popular-movies.component.retrievePopularMovies'
+    );
   }
 
   clickOnMovie(movie: any) {

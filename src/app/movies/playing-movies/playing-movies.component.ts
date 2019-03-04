@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { SubscriberUtil } from '../../utils/subscriber';
 
 @Component({
   selector: 'app-playing-movies',
@@ -12,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class PlayingMoviesComponent implements OnInit, OnDestroy {
   originalPageNumber = 1;
-  playingMoviesList = [];
+  playingMoviesList: any = null;
   totalPages = 0;
   pageEvent: PageEvent;
 
@@ -31,7 +32,8 @@ export class PlayingMoviesComponent implements OnInit, OnDestroy {
   }
 
   retrievePlayingMovies(pageNumber: number) {
-    this.moviesService.getPlayingMoviesByPages(pageNumber)
+    SubscriberUtil.relay(
+      this.moviesService.getPlayingMoviesByPages(pageNumber)
       .pipe(takeUntil(this._ngUnsubscribe))
       .subscribe(res => {
           this.totalPages = res.total_results;
@@ -39,7 +41,10 @@ export class PlayingMoviesComponent implements OnInit, OnDestroy {
         },
         (error) => {
           throw error;
-        });
+        },
+      ),
+      'playing-movies.component.retrievePlayingMovies'
+    );
   }
 
   clickOnMovie(movie: any) {
