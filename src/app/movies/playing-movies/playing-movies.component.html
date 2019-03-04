@@ -1,3 +1,8 @@
+<mat-progress-spinner *ngIf="!playingMoviesList"
+                      mode="indeterminate"
+                      color="accent"
+                      class="playing-movies--spinner">
+</mat-progress-spinner>
 <ng-container *ngIf="playingMoviesList">
   <mat-paginator class="playing-movies--paginator"
                  [length]="totalPages"
@@ -43,12 +48,4 @@
       </div>
     </mat-card>
   </section>
-
-  <mat-paginator class="playing-movies--paginator"
-                 [length]="totalPages"
-                 [pageSize]="20"
-                 [hidePageSize]="true"
-                 [showFirstLastButtons]="true"
-                 (page)="pageEvent = $event; retrievePlayingMovies(pageEvent.pageIndex + 1);">
-  </mat-paginator>
 </ng-container>

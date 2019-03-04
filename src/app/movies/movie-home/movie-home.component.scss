@@ -1,0 +1,61 @@
+.movie-home--container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.movie-home--title {
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+}
+
+.movie-home-image {
+  width: 50%;
+  height: 50%;
+}
+
+
+///
+
+#fly-in {
+  font-size: 4em;
+  margin: 150px auto;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+}
+
+#fly-in span {
+  display: block;
+  font-size: .4em;
+  opacity: .8;
+}
+
+#fly-in div {
+  position: absolute;
+  opacity: 0;
+  animation: switch 32s linear infinite;
+}
+
+#fly-in div:nth-child(2) { animation-delay: 4s}
+#fly-in div:nth-child(3) { animation-delay: 8s}
+#fly-in div:nth-child(4) { animation-delay: 12s}
+#fly-in div:nth-child(5) { animation-delay: 16s}
+#fly-in div:nth-child(6) { animation-delay: 20s}
+#fly-in div:nth-child(7) { animation-delay: 24s}
+#fly-in div:nth-child(8) { animation-delay: 28s}
+
+@keyframes switch {
+  0% { opacity: 0;filter: blur(20px); transform:scale(12)}
+  3% { opacity: 1;filter: blur(0); transform:scale(1)}
+  10% { opacity: 1;filter: blur(0); transform:scale(.9)}
+  13% { opacity: 0;filter: blur(10px); transform:scale(.1)}
+  80% { opacity: 0}
+  100% { opacity: 0}
+}

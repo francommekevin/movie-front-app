@@ -1,3 +1,10 @@
+.playing-movies--spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+}
+
 .playing-movies--container {
   width: 100%;
   display: flex;
@@ -10,7 +17,7 @@
 }
 
 .playing-movies--paginator {
-  background-color:  #212121;
+  background-color: transparent;
   color: #ffffff;
 
   ::ng-deep .mat-paginator-container {

@@ -38,13 +38,15 @@
     margin-top: 14px;
   }
 
+  background-color: #212121 !important;
+  color: #fff !important;
   width: 100%;
   margin-bottom: 20px;
 }
 
 .main-app--navigation-link-mobile {
-  background-color: #212121 !important;
-  color: #fff !important;
+  background-color: #ffd740 !important;
+  color: #212121 !important;
 }
 
 .main-app--logos-container {
@@ -88,7 +90,6 @@
   min-height: calc(100vh - 96px);
   margin: 80px 16px 16px;
   color: #ffffff;
-  background-color: #212121;
 }
 
 @media screen and (max-width: 768px) {

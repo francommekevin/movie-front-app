@@ -1,0 +1,51 @@
+<mat-progress-spinner *ngIf="!topratedMoviesList"
+                      mode="indeterminate"
+                      color="accent"
+                      class="toprated-movies--spinner">
+</mat-progress-spinner>
+<ng-container *ngIf="topratedMoviesList">
+  <mat-paginator class="toprated-movies--paginator"
+                 [length]="totalPages"
+                 [pageSize]="20"
+                 [hidePageSize]="true"
+                 [showFirstLastButtons]="true"
+                 (page)="pageEvent = $event; retrieveTopRatedMovies(pageEvent.pageIndex + 1);">
+  </mat-paginator>
+
+  <section class="toprated-movies--container">
+    <mat-card class="toprated-movies--movie-card toprated-movies-card-caption" *ngFor="let movie of topratedMoviesList">
+      <h2 class="toprated-movies--movie-title">{{ movie.title }}</h2>
+      <div class="toprated-movies--sub-container">
+        <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" class="toprated-movies--movie-image">
+        <div class="toprated-movies--sub-container-infos">
+          <div class="toprated-movies--release-date-and-rating-container">
+            {{ movie.release_date | date:'d MMMM y' }}
+            <div class="toprated-movies--rating-container">
+              <mat-progress-spinner diameter="40"
+                                    [ngClass]="{
+                                    'isUnder5': (movie.vote_average < 5),
+                                    'isBetween5and7': (movie.vote_average >=5 && movie.vote_average < 7),
+                                    'isBetween7and8': (movie.vote_average >=7 && movie.vote_average < 8),
+                                    'isOver8': (movie.vote_average >= 8) }"
+                                    [value]="(movie.vote_average)*10"
+              ></mat-progress-spinner>
+              <div class="toprated-movies--rating-number">{{ movie.vote_average ? movie.vote_average : '---' }}</div>
+            </div>
+          </div>
+          <p class="toprated-movies--resume-title">
+            Résumé :
+          </p>
+          <p class="toprated-movies--resume">
+            {{ movie.overview ? movie.overview : '---' }}
+          </p>
+        </div>
+        <button class="toprated-movies--mobile-button" mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR EN DETAIL</button>
+      </div>
+
+      <div class="toprated-movies--caption">
+        <p class="toprated-movies--caption-see-detail">Plus d'informations</p>
+        <button mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR</button>
+      </div>
+    </mat-card>
+  </section>
+</ng-container>
