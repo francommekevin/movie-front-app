@@ -21,6 +21,7 @@ import { registerLocaleData } from '@angular/common';
 import localeDeAt from '@angular/common/locales/fr';
 import { PlayingMoviesComponent } from './movies/playing-movies/playing-movies.component';
 import { TopRatedMoviesComponent } from './movies/top-rated-movies/top-rated-movies.component';
+import { UpcomingMoviesComponent } from './movies/upcoming-movies/upcoming-movies.component';
 
 registerLocaleData(localeDeAt);
 
@@ -32,7 +33,8 @@ registerLocaleData(localeDeAt);
     PageNotFoundComponent,
     MovieHomeComponent,
     PlayingMoviesComponent,
-    TopRatedMoviesComponent
+    TopRatedMoviesComponent,
+    UpcomingMoviesComponent
   ],
   imports: [
     BrowserModule,

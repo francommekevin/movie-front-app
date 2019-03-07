@@ -20,7 +20,7 @@
 .main-app--sidenav {
   width: 230px;
   color: #FFF;
-  background-color: #455A64;
+  background-color: #333333;
   padding: 16px;
 }
 
@@ -88,8 +88,9 @@
 
 .main-app--container {
   min-height: calc(100vh - 96px);
-  margin: 80px 16px 16px;
+  margin: 80px 0 16px;
   color: #ffffff;
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {

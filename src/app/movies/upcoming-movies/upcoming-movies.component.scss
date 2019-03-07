@@ -1,11 +1,11 @@
-.toprated-movies--spinner {
+.upcoming-movies--spinner {
   position: absolute;
   left: 50%;
   top: 50%;
   margin-left: -50px;
 }
 
-.toprated-movies--container {
+.upcoming-movies--container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -16,7 +16,7 @@
   display: none;
 }
 
-.toprated-movies--paginator {
+.upcoming-movies--paginator {
   background-color: transparent;
   color: #ffffff;
 
@@ -29,46 +29,46 @@
   }
 }
 
-.toprated-movies--paginator ::ng-deep .mat-icon-button[disabled][disabled] {
+.upcoming-movies--paginator ::ng-deep .mat-icon-button[disabled][disabled] {
   color: #333333;
 }
 
-.toprated-movies--movie-card {
+.upcoming-movies--movie-card {
   width: 483px;
   margin: 15px 30px;
 }
 
-.toprated-movies--movie-title {
+.upcoming-movies--movie-title {
   font-size: 24px
 }
 
-.toprated-movies--sub-container {
+.upcoming-movies--sub-container {
   display: flex;
   align-items: center;
 }
 
-.toprated-movies--movie-image {
+.upcoming-movies--movie-image {
   width: 185px !important;
   height: 278px !important;
   border-radius: 10px;
 }
 
 
-.toprated-movies--sub-container-infos {
+.upcoming-movies--sub-container-infos {
   width: 266px;
   height: 298px;
   position: relative;
   padding: 0 16px;
 }
 
-.toprated-movies--release-date-and-rating-container {
+.upcoming-movies--release-date-and-rating-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
 }
 
-.toprated-movies--rating-container {
+.upcoming-movies--rating-container {
   display: flex;
   justify-content: center;
 
@@ -89,7 +89,7 @@
   }
 }
 
-.toprated-movies--rating-number {
+.upcoming-movies--rating-number {
   width: 23px;
   display: flex;
   justify-content: center;
@@ -98,12 +98,12 @@
   right: 8px;
 }
 
-.toprated-movies--resume-title {
+.upcoming-movies--resume-title {
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.toprated-movies--resume {
+.upcoming-movies--resume {
   color: #c1c1c1;
   overflow: hidden;
   position: relative;
@@ -115,13 +115,13 @@
   padding-right: 1em;
 }
 
-.toprated-movies--resume:before {
+.upcoming-movies--resume:before {
   content: '...';
   position: absolute;
   right: 0;
   bottom: 0;
 }
-.toprated-movies--resume:after {
+.upcoming-movies--resume:after {
   content: '';
   position: absolute;
   right: 0;
@@ -132,16 +132,16 @@
 }
 
 
-.toprated-movies-card-caption {
+.upcoming-movies-card-caption {
   position: relative;
   overflow: hidden;
 }
 
-.toprated-movies--caption-see-detail {
+.upcoming-movies--caption-see-detail {
   margin: 0;
 }
 
-.toprated-movies-card-caption .toprated-movies--caption {
+.upcoming-movies-card-caption .upcoming-movies--caption {
   background: #333333;
   width: 100%;
   height: 75px;
@@ -159,34 +159,34 @@
   transition: all 0.3s;
 }
 
-.toprated-movies-card-caption:hover .toprated-movies--caption {
+.upcoming-movies-card-caption:hover .upcoming-movies--caption {
   bottom: 0;
 }
 
-.toprated-movies--mobile-button {
+.upcoming-movies--mobile-button {
   display: none;
 }
 
 @media screen and (max-width: 425px) {
-  .toprated-movies--sub-container {
+  .upcoming-movies--sub-container {
     flex-direction: column;
   }
 
-  .toprated-movies--sub-container-infos {
+  .upcoming-movies--sub-container-infos {
     width: auto;
     height: auto;
     margin-top: 20px;
   }
 
-  .toprated-movies--resume {
+  .upcoming-movies--resume {
     max-height: 6.9em;
   }
 
-  .toprated-movies-card-caption .toprated-movies--caption {
+  .upcoming-movies-card-caption .upcoming-movies--caption {
     display: none;
   }
 
-  .toprated-movies--mobile-button {
+  .upcoming-movies--mobile-button {
     display: block;
     margin: 16px auto;
   }

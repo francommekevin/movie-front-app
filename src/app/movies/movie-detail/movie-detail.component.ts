@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movie-detail',
@@ -10,10 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 export class MovieDetailComponent implements OnInit {
 
   movie: any;
+  backgroundImg: any;
 
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +29,8 @@ export class MovieDetailComponent implements OnInit {
       .subscribe(res => {
           console.log(res);
           this.movie = res;
+          this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(
+            'url(https://image.tmdb.org/t/p/w1400_and_h450_face' + this.movie.backdrop_path + ')');
         },
         (error) => {
           throw error;
