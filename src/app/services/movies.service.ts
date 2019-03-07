@@ -28,6 +28,13 @@ export class MoviesService {
       Constants.BASE_API_REGION);
   }
 
+  getUpcomingMoviesByPages(pageNumber: number): Observable<any> {
+    return this.http.get(Constants.BASE_API_URL + 'movie/upcoming?api_key=' +
+      Constants.BASE_API_KEY + '&language=' +
+      Constants.BASE_API_LANGUAGE + '&page=' + pageNumber + '&region=' +
+      Constants.BASE_API_REGION);
+  }
+
   getMovieDetail(movieId: number): Observable<any> {
     return this.http.get(Constants.BASE_API_URL + 'movie/' + movieId + '?api_key=' +
       Constants.BASE_API_KEY + '&language=' +

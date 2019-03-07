@@ -1,0 +1,52 @@
+<mat-progress-spinner *ngIf="!upcomingMoviesList"
+                      mode="indeterminate"
+                      color="accent"
+                      class="upcoming-movies--spinner">
+</mat-progress-spinner>
+<ng-container *ngIf="upcomingMoviesList">
+  <mat-paginator class="upcoming-movies--paginator"
+                 [length]="totalPages"
+                 [pageSize]="20"
+                 [hidePageSize]="true"
+                 [showFirstLastButtons]="true"
+                 (page)="pageEvent = $event; retrieveUpcomingMovies(pageEvent.pageIndex + 1);">
+  </mat-paginator>
+
+  <section class="upcoming-movies--container">
+    <mat-card class="upcoming-movies--movie-card upcoming-movies-card-caption" *ngFor="let movie of upcomingMoviesList">
+      <h2 class="upcoming-movies--movie-title">{{ movie.title }}</h2>
+      <div class="upcoming-movies--sub-container">
+        <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" class="upcoming-movies--movie-image">
+        <img *ngIf="!movie.poster_path" src="../../../assets/images/no-image.jpg" class="upcoming-movies--movie-image">
+        <div class="upcoming-movies--sub-container-infos">
+          <div class="upcoming-movies--release-date-and-rating-container">
+            {{ movie.release_date | date:'d MMMM y' }}
+            <div class="upcoming-movies--rating-container">
+              <mat-progress-spinner diameter="40"
+                                    [ngClass]="{
+                                    'isUnder5': (movie.vote_average < 5),
+                                    'isBetween5and7': (movie.vote_average >=5 && movie.vote_average < 7),
+                                    'isBetween7and8': (movie.vote_average >=7 && movie.vote_average < 8),
+                                    'isOver8': (movie.vote_average >= 8) }"
+                                    [value]="(movie.vote_average)*10"
+              ></mat-progress-spinner>
+              <div class="upcoming-movies--rating-number">{{ movie.vote_average ? movie.vote_average : '---' }}</div>
+            </div>
+          </div>
+          <p class="upcoming-movies--resume-title">
+            Résumé :
+          </p>
+          <p class="upcoming-movies--resume">
+            {{ movie.overview ? movie.overview : '---' }}
+          </p>
+        </div>
+        <button class="upcoming-movies--mobile-button" mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR EN DETAIL</button>
+      </div>
+
+      <div class="upcoming-movies--caption">
+        <p class="upcoming-movies--caption-see-detail">Plus d'informations</p>
+        <button mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR</button>
+      </div>
+    </mat-card>
+  </section>
+</ng-container>

@@ -1,3 +1,17 @@
-<p>
-  {{ movie.title }}
-</p>
+<mat-progress-spinner *ngIf="!movie"
+                      mode="indeterminate"
+                      color="accent"
+                      class="movie-detail--spinner">
+</mat-progress-spinner>
+<ng-container *ngIf="movie">
+  <section class="movie-detail--poster-container">
+    <div class="movie-detail--poster" [style.background-image]="backgroundImg"></div>
+  </section>
+  <section class="movie-detail--content-container">
+    <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}" class="movie-detail--image">
+    <img *ngIf="!movie.poster_path" src="../../../assets/images/no-image.jpg" class="movie-detail--image">
+    <h2 class="movie-detail--title">
+      {{ movie.title }} <span class="movie-detail--title-date">({{ movie.release_date | date:'y' }})</span>
+    </h2>
+  </section>
+</ng-container>

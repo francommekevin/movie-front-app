@@ -16,7 +16,8 @@
     <mat-card class="toprated-movies--movie-card toprated-movies-card-caption" *ngFor="let movie of topratedMoviesList">
       <h2 class="toprated-movies--movie-title">{{ movie.title }}</h2>
       <div class="toprated-movies--sub-container">
-        <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" class="toprated-movies--movie-image">
+        <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" class="toprated-movies--movie-image">
+        <img *ngIf="!movie.poster_path" src="../../../assets/images/no-image.jpg" class="toprated-movies--movie-image">
         <div class="toprated-movies--sub-container-infos">
           <div class="toprated-movies--release-date-and-rating-container">
             {{ movie.release_date | date:'d MMMM y' }}

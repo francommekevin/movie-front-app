@@ -48,18 +48,17 @@
 }
 
 .popular-movies--movie-image {
-  width: 185px;
-  height: 278px;
+  width: 185px !important;
+  height: 278px !important;
   border-radius: 10px;
 }
 
 
 .popular-movies--sub-container-infos {
-  width: 298px;
+  width: 266px;
   height: 298px;
   position: relative;
   padding: 0 16px;
-  overflow: hidden;
 }
 
 .popular-movies--release-date-and-rating-container {
@@ -112,6 +111,7 @@
   max-height: 14.9em;
   font-size: 14px;
   margin-right: -1em;
+  margin-top: 0;
   padding-right: 1em;
 }
 
@@ -188,6 +188,6 @@
 
   .popular-movies--mobile-button {
     display: block;
-    margin: 32px auto 16px;
+    margin: 16px auto;
   }
 }
