@@ -23,7 +23,11 @@
 
   <mat-sidenav-content>
     <div class="main-app--container">
+      <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+      </div>
       <router-outlet></router-outlet>
     </div>
+    <button mat-mini-fab color="accent" id="goTop"><mat-icon>arrow_upward</mat-icon></button>
   </mat-sidenav-content>
 </mat-sidenav-container>

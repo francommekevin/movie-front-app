@@ -4,7 +4,7 @@
   <img class="movie-home-image" src="../../../assets/images/movie_night.svg">
 </section>
 -->
-<section class="movie-home--container">
+<!--<section class="movie-home&#45;&#45;container">
   <div id="fly-in">
     <div><span>Bienvenue sur</span>Mon POPCORN</div>
     <div><span>Tous vos</span>Films préférés</div>
@@ -15,4 +15,19 @@
     <div>Une recherche<span>optimisée</span></div>
     <div><span>En salle</span>Prochainement</div>
   </div>
+</section>-->
+<mat-progress-spinner *ngIf="!popularMoviesList"
+                      mode="indeterminate"
+                      color="accent"
+                      class="movie-home--spinner">
+</mat-progress-spinner>
+<section class="movie-home--movie-container" *ngFor="let movie of popularMoviesList">
+  <div class="movie-home--backdrop-path" [style.background-image]="'url(https://image.tmdb.org/t/p/original/' +  movie.backdrop_path  + ')'">
+  </div>
+  <div class="movie-home--info-container">
+    <p class="movie-home--movie-title">{{ movie.title }}</p>
+    <button class="movie-home--movie-detail-button" mat-raised-button color="accent" (click)="clickOnMovie(movie)">VOIR EN DETAIL</button>
+
+  </div>
 </section>
+
